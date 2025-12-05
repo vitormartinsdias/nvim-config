@@ -1,12 +1,24 @@
 return {
-  -- Zen-mode
-  "folke/zen-mode.nvim",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+  -- 1. Zen Mode Configuration
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      window = {
+        width = 100, -- Your custom width
+        options = {
+          -- signcolumn = "no",
+          -- number = false,
+          -- relativenumber = false,
+        },
+      },
+      -- Ensure ZenMode knows to trigger Twilight when it opens
+      plugins = {
+        twilight = { enabled = true },
+      },
+    },
   },
-  -- 2. Twilight (Dims inactive text)
+
+  -- 2. Twilight Configuration (This must be a SEPARATE entry)
   {
     "folke/twilight.nvim",
     opts = {
