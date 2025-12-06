@@ -6,9 +6,13 @@ return {
       window = {
         width = 100, -- Your custom width
         options = {
-          -- signcolumn = "no",
-          -- number = false,
-          -- relativenumber = false,
+          -- CRITICAL FIX 1: Force centering inside the Zen window
+          scrolloff = 999,
+
+          -- Optional: I recommend uncommenting these for true Zen Mode
+          signcolumn = "no",
+          number = true,
+          relativenumber = false,
         },
       },
       -- Ensure ZenMode knows to trigger Twilight when it opens
@@ -18,12 +22,15 @@ return {
     },
   },
 
-  -- 2. Twilight Configuration (This must be a SEPARATE entry)
+  -- 2. Twilight Configuration
   {
     "folke/twilight.nvim",
     opts = {
-      -- This allows Twilight to work inside code blocks in Markdown/Quarto
-      context = 10,
+      -- CRITICAL FIX 2: Lower this number!
+      -- 1 = Current line + 1 above/below stays bright.
+      -- 10 was keeping almost the whole screen bright.
+      context = 1,
+
       treesitter = true,
     },
   },
