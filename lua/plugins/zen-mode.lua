@@ -19,6 +19,16 @@ return {
       plugins = {
         twilight = { enabled = true },
       },
+
+      -- NEW: Hide warnings/errors when entering ZenMode
+      on_open = function(_)
+        vim.diagnostic.enable(false, { bufnr = 0 })
+      end,
+
+      -- NEW: Restore warnings/errors when exiting ZenMode
+      on_close = function(_)
+        vim.diagnostic.enable(true, { bufnr = 0 })
+      end,
     },
   },
 
