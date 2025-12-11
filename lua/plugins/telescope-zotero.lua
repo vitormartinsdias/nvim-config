@@ -12,11 +12,11 @@ return {
 
     keys = {
       {
-        "<leader>tz",
+        "<leader>fz",
         function()
           require("telescope").extensions.zotero.zotero()
         end,
-        desc = "Zotero Search",
+        desc = "Find Zotero",
       },
     },
 
